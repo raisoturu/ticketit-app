@@ -18,8 +18,10 @@ Route::get('/', function () {
 		return redirect('/home');
 	}
 });
-
-
+//Route::get('qrLogin', ['uses' => 'QrLoginController@index']);
+Route::get('qrLogin', ['uses' => 'QrLoginController@indexoption2']);
+Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
+Route::get('qrLogin-autogenerate', ['uses' => 'QrLoginController@QrAutoGenerate']);
 
 
 Auth::routes();
@@ -27,3 +29,4 @@ Auth::routes();
 Route::get('/home', function(){
 	return redirect(action('\Kordy\Ticketit\Controllers\TicketsController@index'));
 });
+
